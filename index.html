@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3r1rZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ@KaoGN26/zrn20ImR1DfuLWn007aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Dev Burguer - A melhor hamburgueria dev!</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="title">Dev Burguer</h1>
+            <span class="address">Rua Dev 10, Campo Grande - MS</span>
+            <div class="opening-hours">Seg a Dom - 18:00 às 22:00</div>
+        </div>
+        <img src="logo.png" alt="Logo" class="logo-primeiro">
+    </header>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="navigation">
+        <ul class="nav-links">
+            <li><a href="#tradicionais"><i class="fas fa-hamburger"></i> Hambúrgueres Tradicionais</a></li>
+            <li><a href="#gourmet"><i class="fas fa-utensils"></i> Hambúrgueres Gourmet</a></li>
+            <li><a href="#regionais"><i class="fas fa-map-marker-alt"></i> Hambúrgueres Regionais</a></li>
+            <li><a href="#doces"><i class="fas fa-cookie"></i> Sobremesas</a></li>
+            <li><a href="#promocoes"><i class="fas fa-tags"></i> Promoções e Combos</a></li>
+        </ul>
+    </nav>
+
+    
+     <!-- CARROSSEL -->
+     <div class="carousel">
+      <button class="carousel-btn prev-btn">&#10094;</button>
+      <div class="carousel-images">
+          <img src="banner.jpg" alt="Pizza 1" class="carousel-image">
+          <img src="burgur.jpg" alt="Pizza 2" class="carousel-image">
+      </div>
+      <button class="carousel-btn next-btn">&#10095;</button>
+  </div>
+
+  
+    <!-- MENU -->
+    <section class="menu">
+        <h2 class="menu-title">Conheça nosso menu</h2>
+
+        <h3 id="tradicionais">Hambúrgueres Tradicionais</h3>
+        <div class="menu-grid">
+            <!-- Hambúrguer Clássico -->
+            <div class="menu-item">
+                <p class="menu-name">Hambúrguer Clássico</p>
+                <p class="menu-description">Pão macio, hambúrguer suculento, queijo e molho especial.</p>
+                <p class="menu-price" data-base-price="25.90">R$ 25,90</p>
+                <img src="hamburguer_classico.jpg" alt="Hambúrguer Clássico" class="menu-img">
+                <button class="add-to-cart-btn" data-name="Hambúrguer Clássico" data-price="25.90" onclick="openCustomPopup('Hambúrguer Clássico', 25.90)">Personalizar</button>
+            </div>
+
+            <!-- Hambúrguer de Frango -->
+            <div class="menu-item">
+                <p class="menu-name">Hambúrguer de Frango</p>
+                <p class="menu-description">Hambúrguer de frango grelhado, alface e maionese de ervas.</p>
+                <p class="menu-price" data-base-price="27.90">R$ 27,90</p>
+                <button class="add-to-cart-btn" data-name="Hambúrguer de Frango" data-price="27.90" onclick="openCustomPopup('Hambúrguer de Frango', 27.90)">Personalizar</button>
+                <img src="hamburguer_frango.png" alt="Hambúrguer de Frango" class="menu-img">
+            </div>
+        </div>
+
+        <h3 id="gourmet">Hambúrgueres Gourmet</h3>
+        <div class="menu-grid">
+            <!-- Hambúrguer Gourmet Example -->
+            <div class="menu-item">
+                <p class="menu-name">Hambúrguer Gourmet</p>
+                <p class="menu-description">Pão brioche, hambúrguer artesanal, bacon crocante e molho trufado.</p>
+                <p class="menu-price" data-base-price="34.90">R$ 34,90</p>
+                <button class="add-to-cart-btn" data-name="Hambúrguer Gourmet" data-price="34.90" onclick="openCustomPopup('Hambúrguer Gourmet', 34.90)">Personalizar</button>
+                <img src="hamburguer_gourmet.png" alt="Hambúrguer Gourmet" class="menu-img">
+            </div>
+        </div>
+
+        <h3 id="regionais">Hambúrgueres Regionais</h3>
+        <div class="menu-grid">
+            <!-- Hambúrguer Regional Example -->
+            <div class="menu-item">
+                <p class="menu-name">Hambúrguer Nordestino</p>
+                <p class="menu-description">Carne de sol, queijo coalho e toque de manteiga de garrafa.</p>
+                <p class="menu-price" data-base-price="29.90">R$ 29,90</p>
+                <button class="add-to-cart-btn" data-name="Hambúrguer Nordestino" data-price="29.90" onclick="openCustomPopup('Hambúrguer Nordestino', 29.90)">Personalizar</button>
+                <img src="hamburguer_nordestino.png" alt="Hambúrguer Nordestino" class="menu-img">
+            </div>
+        </div>
+
+        <h3 id="doces">Sobremesas</h3>
+        <div class="menu-grid">
+            <!-- Sobremesa Example -->
+            <div class="menu-item">
+                <p class="menu-name">Brownie com Sorvete</p>
+                <p class="menu-description">Brownie de chocolate com sorvete de creme.</p>
+                <p class="menu-price" data-base-price="19.90">R$ 19,90</p>
+                <button class="add-to-cart-btn" data-name="Brownie com Sorvete" data-price="19.90" onclick="openCustomPopup('Brownie com Sorvete', 19.90)">Adicionar</button>
+                <img src="brownie_sorvete.png" alt="Brownie com Sorvete" class="menu-img">
+            </div>
+        </div>
+
+        <h3 id="promocoes">Promoções e Combos</h3>
+        <div class="menu-grid">
+            <!-- Combo Example -->
+            <div class="menu-item">
+                <p class="menu-name">Combo Clássico</p>
+                <p class="menu-description">2 Hambúrgueres clássicos + 2 refrigerantes de 500ml.</p>
+                <p class="menu-price" data-base-price="49.90">R$ 49,90</p>
+                <button class="add-to-cart-btn" data-name="Combo Clássico" data-price="49.90" onclick="openCustomPopup('Combo Clássico', 49.90)">Adicionar</button>
+                <img src="combo_classico.png" alt="Combo Clássico" class="menu-img">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+       <!-- CUSTOM POPUP -->
+<!-- CUSTOM POPUP -->
+<div class="custom-popup hidden" id="customPopup">
+  <div class="custom-popup-content">
+    <span class="custom-popup-close" id="closePopup">&times;</span>
+    <h3 class="custom-popup-title">Personalize seu Hambúrguer</h3>
+    <form class="custom-popup-form">
+
+      <!-- Tipo de Pão -->
+      <div class="custom-popup-section">
+        <h4>Tipo de Pão (Escolha 1):</h4>
+        <label>
+          <input type="radio" name="pao" value="Pão Brioche" data-extra-price="2.00" required> Pão Brioche (+ R$ 2,00)
+        </label>
+        <label>
+          <input type="radio" name="pao" value="Pão Integral" data-extra-price="2.50" required> Pão Integral (+ R$ 2,50)
+        </label>
+        <label>
+          <input type="radio" name="pao" value="Pão Australiano" data-extra-price="3.00" required> Pão Australiano (+ R$ 3,00)
+        </label>
+      </div>
+
+      <!-- Tipo de Carne -->
+      <div class="custom-popup-section">
+        <h4>Tipo de Carne (Escolha 1):</h4>
+        <label>
+          <input type="radio" name="carne" value="Carne Bovina" data-extra-price="6.00" required> Carne Bovina (+ R$ 6,00)
+        </label>
+        <label>
+          <input type="radio" name="carne" value="Frango Grelhado" data-extra-price="5.00" required> Frango Grelhado (+ R$ 5,00)
+        </label>
+        <label>
+          <input type="radio" name="carne" value="Vegano" data-extra-price="7.00" required> Hambúrguer Vegano (+ R$ 7,00)
+        </label>
+      </div>
+
+      <!-- Adicionais -->
+      <div class="custom-popup-section">
+        <h4>Adicionais (Escolha quantos quiser):</h4>
+        <label>
+          <input type="checkbox" name="adicionais" value="Queijo Cheddar" data-extra-price="3.00"> Queijo Cheddar (+ R$ 3,00)
+        </label>
+        <label>
+          <input type="checkbox" name="adicionais" value="Bacon" data-extra-price="4.00"> Bacon (+ R$ 4,00)
+        </label>
+        <label>
+          <input type="checkbox" name="adicionais" value="Ovo" data-extra-price="2.50"> Ovo (+ R$ 2,50)
+        </label>
+        <label>
+          <input type="checkbox" name="adicionais" value="Salada" data-extra-price="1.50"> Salada (+ R$ 1,50)
+        </label>
+      </div>
+
+      <!-- Molhos -->
+      <div class="custom-popup-section">
+        <h4>Molhos (Escolha 1):</h4>
+        <label>
+          <input type="radio" name="molho" value="Maionese Caseira" data-extra-price="0.00" required> Maionese Caseira
+        </label>
+        <label>
+          <input type="radio" name="molho" value="Barbecue" data-extra-price="1.00" required> Barbecue (+ R$ 1,00)
+        </label>
+        <label>
+          <input type="radio" name="molho" value="Mostarda e Mel" data-extra-price="1.50" required> Mostarda e Mel (+ R$ 1,50)
+        </label>
+      </div>
+
+      <!-- Observações -->
+      <div class="custom-popup-section">
+        <h4>Observação (opcional):</h4>
+        <textarea id="observacao" rows="3" placeholder="Adicione uma observação"></textarea>
+      </div>
+
+      <!-- Botão de adicionar -->
+      <button type="button" class="custom-popup-add-btn" id="addToCartBtn">Adicionar ao Carrinho</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+    <!-- MODAL CARRINHO -->
+<div id="cart-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Meu Carrinho</h2>
+        <div id="cart-items"></div>
+        <div id="selected-flavors">
+            <h3>Sabores Selecionados</h3>
+            <ul id="flavor-list"></ul>
+        </div>
+        <p>Total: <span id="cart-total">R$ 0,00</span></p>
+        <input type="text" id="customer-name" placeholder="Digite seu nome completo..." required />
+        <input type="text" id="address" placeholder="Digite seu endereço completo..." required />
+        <h3>Forma de Pagamento</h3>
+        <div class="payment-options">
+            <label><input type="radio" name="payment" value="Cartão" checked> Cartão </label>
+            <label><input type="radio" name="payment" value="pix"> Pix </label>
+            <label><input type="radio" name="payment" value="dinheiro"> Dinheiro </label>
+        </div>
+        <div id="pix-info" class="hidden">
+            <p>Chave Pix: <strong id="pix-key">75983178582</strong></p>
+            <button id="copy-pix-btn">Copiar Chave Pix</button>
+        </div>
+        <div class="modal-actions">
+            <button id="close-modal-btn">Fechar</button>
+            <button id="checkout-btn">Finalizar Pedido</button>
+        </div>
+    </div>
+</div>
+ 
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <button id="cart-btn">
+            (<span id="cart-count">0</span>) Ver Meu Carrinho
+            <i class="fa fa-cart-plus"></i>
+        </button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

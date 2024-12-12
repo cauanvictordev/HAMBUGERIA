@@ -1,0 +1,1523 @@
+/* Reset básico para consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Fundo branco */
+    color: #7f0000; /* Vermelho suave para o texto */
+    line-height: 1.6;
+}
+
+/* Estilo do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #b30000; /* Vermelho suave para o header */
+    color: #ffffff; /* Texto branco */
+    border-bottom: 5px solid #ff6666; /* Vermelho mais claro para o detalhe */
+}
+
+.header-content {
+    max-width: 60%;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff; /* Texto branco */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.address, .opening-hours {
+    font-size: 1rem;
+    color: #ffffff; /* Texto branco */
+}
+
+.logo-primeiro {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .header-content {
+        max-width: 70%;
+        margin-left: 10px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .logo-primeiro {
+        width: 80px;
+    }
+}
+
+/* Variáveis */
+:root {
+    --primary-color: #b30000; /* Vermelho suave */
+    --secondary-color: #ff6666; /* Vermelho mais claro */
+    --hover-color: #000000; /* Cor preta para o hover */
+    --background-color: #ffffff; /* Fundo branco */
+    --text-color: #7f0000; /* Vermelho suave */
+    --modal-bg-color: #ffffff; /* Fundo do modal branco */
+    --modal-text-color: #7f0000; /* Texto do modal vermelho suave */
+}
+
+/* Estilo da navegação */
+.navigation {
+    background-color: var(--primary-color);
+    padding: 16px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; /* Texto branco */
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--hover-color); /* Fundo preto ao passar o mouse */
+    color: #ffffff; /* Mantém o texto branco */
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Efeito de foco e animação */
+.nav-links a:focus {
+    outline: none;
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 10px rgba(255, 102, 102, 0.7); /* Brilho suave ao focar */
+}
+
+
+
+
+
+
+
+/*====================
+       CARROSEL 
+======================*/
+
+
+/* Estilos do Carrossel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    min-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Indicadores de Navegação */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background-color: var(--primary-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+    }
+    
+    .carousel-btn {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-btn {
+        font-size: 18px;
+        padding: 6px 10px;
+    }
+}
+
+
+
+
+/* Estilo geral do rodapé */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco */
+    border-top: 2px solid var(--primary-color); /* Detalhe em vermelho */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Campo de entrada */
+.address-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: #ffffff; /* Fundo branco */
+    color: var(--text-color); /* Texto vermelho suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.address-input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =============== FORMAS DE PAGAMENTO =================== */
+/* Estilo para a seção Pix */
+#pix-info {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    background-color: #f7f7f7; /* Fundo claro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#pix-info p {
+    font-size: 1rem;
+    margin: 12px 0;
+    color: #333; /* Texto em preto suave */
+    font-family: "Arial", sans-serif;
+}
+
+#pix-info p strong {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333; /* Cor preta para o texto da chave Pix */
+}
+
+#pix-info button {
+    margin-top: 12px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    background-color: var(--primary-color); /* Substitua por sua cor principal */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#pix-info button:hover {
+    background-color: var(--secondary-color); /* Cor mais clara ao passar o mouse */
+    transform: scale(1.05); /* Efeito de zoom suave */
+}
+
+/* Seção de Pagamento */
+#payment-section {
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 2px solid var(--secondary-color);
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#payment-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-family: "Arial", sans-serif;
+    text-align: center;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-options label {
+    font-size: 1rem;
+    color: #333; /* Texto preto suave para opções de pagamento */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta um pouco o tamanho do botão */
+}
+
+/* Estilo para todas as seções de pagamento (Pix, Boleto, Cartão) */
+#pix-info, #boleto-info, #credit-card-info {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pix-info p, #boleto-info p, #credit-card-info p {
+    font-size: 1rem;
+    margin: 12px 0;
+    color: #333;
+}
+
+#pix-info button, #boleto-info button, #credit-card-info button {
+    margin-top: 12px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#pix-info button:hover, #boleto-info button:hover, #credit-card-info button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #upload-proof {
+        padding: 20px;
+    }
+
+    #upload-proof input[type="file"] {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        max-width: 100%; /* Adapta ao espaço disponível */
+    }
+}
+
+#upload-proof {
+    margin-top: 30px;
+    text-align: center;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#upload-proof h4 {
+    font-size: 1.5rem;
+    color: #7f0000; /* Título vermelho suave */
+    margin-bottom: 10px;
+}
+
+#upload-proof input[type="file"] {
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 2px solid #b30000;
+    background-color: #fff;
+    color: #7f0000;
+    cursor: pointer;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+#upload-proof input[type="file"]:hover {
+    border-color: #ff6666; /* Borda vermelha mais clara ao passar o mouse */
+}
+
+#upload-proof input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 18px;
+    font-size: 1.2rem;
+    background-color: #b30000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#upload-proof input[type="submit"]:hover {
+    background-color: #ff6666; /* Cor mais clara ao passar o mouse */
+    transform: scale(1.05); /* Efeito de zoom */
+}
+
+
+
+
+
+
+
+
+/* Estilo Geral */
+.hidden {
+    display: none;
+}
+
+/* Estilos para os títulos */
+h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    position: relative;
+    color: #ff0000; /* Vermelho */
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Animação de destaque ao passar o mouse */
+h3:hover {
+    color: #cc0000; /* Vermelho mais escuro */
+    transform: scale(1.1);
+    text-shadow: 0px 4px 8px rgba(255, 0, 0, 0.3); /* Sombra vermelha */
+}
+
+/* Subdivisão de estilos por ID */
+#pizzas {
+    background: linear-gradient(45deg, #ffcccc, #ff6666); /* Gradiente de vermelho claro para vermelho */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+}
+
+#bebidas {
+    background: linear-gradient(45deg, #ff9999, #ff4d4d); /* Gradiente de vermelho suave para vermelho forte */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+}
+
+#hamburgueres {
+    background: linear-gradient(45deg, #ff6666, #cc0000); /* Gradiente de vermelho médio para vermelho escuro */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+}
+
+#doces {
+    background: linear-gradient(45deg, #ff9999, #ff4d4d); /* Gradiente de vermelho suave para vermelho */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+}
+
+/* Animação ao carregar */
+h3 {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Keyframes para animação */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*====================
+        MENU   
+====================== */
+:root {
+    --primary-color: #ff0000; /* Vermelho */
+    --background-color: #ffffff; /* Cor branca para o contêiner */
+    --text-color: #333; /* Cor do texto */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra padrão */
+    --hover-shadow-color: rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.menu {
+    padding: 40px 20px;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh; /* Garantir altura mínima para expandir */
+    overflow-y: 90px; /* Adicionar barra de rolagem se necessário */
+}
+
+.menu-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Grade de itens do menu */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 itens por linha */
+    gap: 20px; /* Espaço entre os itens */
+    max-width: 1200px; /* Largura máxima da grade */
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin-bottom: 100px; /* Adicionar espaço no final da grade */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 itens por linha em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1 item por linha em telas pequenas */
+    }
+}
+
+.menu-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px var(--hover-shadow-color);
+}
+
+.menu-name {
+    font-size: 1.8rem; /* Tamanho maior para melhorar a legibilidade */
+    font-weight: bold; /* Negrito para dar mais ênfase */
+    color: #333333; /* Cor preta escura para melhor contraste e legibilidade */
+    line-height: 1.5; /* Aumenta o espaçamento entre linhas para melhorar a leitura */
+    margin-bottom: 20px; /* Espaço inferior para separar de outros elementos */
+    text-align: center; /* Centraliza o texto */
+    letter-spacing: 1px; /* Aumenta o espaçamento entre letras para uma leitura mais confortável */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave para interatividade */
+}
+
+/* Estilo para o subtítulo */
+p {
+    font-size: 1.2rem; /* Tamanho de fonte adequado, menor que o título principal */
+    font-weight: normal; /* Retira o negrito para uma aparência mais limpa */
+    color: #555555; /* Cor cinza escuro para um bom contraste, mas mais suave que o preto */
+    margin-top: 8px; /* Margem superior para separar um pouco do conteúdo acima */
+    margin-bottom: 16px; /* Margem inferior para separar do conteúdo abaixo */
+    text-align: center; /* Centraliza o texto */
+    letter-spacing: 0.5px; /* Pequeno espaçamento entre as letras para melhorar a legibilidade */
+    text-transform: none; /* Mantém a capitalização padrão do texto */
+    line-height: 1.4; /* Aumenta o espaçamento entre as linhas para uma leitura mais confortável */
+}
+
+
+/* Estilo para o preço */
+.menu-price {
+    font-size: 2.5rem; /* Tamanho maior para chamar atenção */
+    font-weight: bold; /* Deixa o preço em negrito */
+    margin-top: 10px; /* Espaço superior */
+    color: #b30000; /* Cor vermelha chamativa para o preço */
+    text-align: center; /* Centraliza o texto */
+    letter-spacing: 0.5px; /* Ajusta o espaçamento entre letras para melhorar a leitura */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+
+
+
+/* Estilo para a imagem */
+.menu-img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura disponível */
+    height: auto; /* Ajusta a altura da imagem proporcionalmente */
+    max-height: 300px; /* Limita a altura máxima para evitar imagens muito grandes */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    object-fit: cover; /* Faz a imagem cobrir a área sem distorcer, mantendo a proporção */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para transformação e sombra */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-img {
+        max-height: 200px; /* Reduz a altura máxima para telas menores */
+    }
+}
+
+
+.add-to-cart-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #cc0000; /* Vermelho mais escuro */
+}
+
+/* FINALIZOU MENU */
+
+/* PROMOÇÕES DO MENU */
+.menu-promo .old-price {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.menu-promo .new-price {
+    color: #ff0000; /* Vermelho */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* FIM DO PROMOÇÕES DO MENU */
+
+/*====================
+   Custom Popup Styles    
+====================== */
+/* Custom Popup */
+.custom-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: 90%;
+}
+
+.custom-popup-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.custom-popup-close {
+    top: 10px;
+    right: -10px; /* 20px + 30px para a direita */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.custom-popup-add-btn {
+    margin-top: 15px;
+    background: #ff0000; /* Vermelho */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.custom-popup-add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilo dos Labels com Ícones */
+.custom-popup-section label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo dos Ícones */
+.custom-popup-section label i {
+    font-size: 24px;
+    color: #ff6347; /* Cor dos ícones (pode ser ajustada) */
+}
+
+.custom-popup-section {
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* Estilo para adicionar rolagem */
+.size-options {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    padding: 10px;
+    scrollbar-width: thin; /* Estiliza a largura da barra de rolagem */
+    scrollbar-color: #8b0000 #ffd2d2; /* Cor da barra de rolagem e do fundo */
+}
+
+.size-options::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+}
+
+.size-options::-webkit-scrollbar-thumb {
+    background: #8b0000; /* Cor do botão de rolagem */
+    border-radius: 4px;
+}
+
+.size-options::-webkit-scrollbar-track {
+    background: #ffd2d2; /* Fundo do trilho da barra de rolagem */
+}
+
+/* Estilo para os cartões */
+.size-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffd2d2; /* Vermelho claro */
+    border: 2px dashed #8b0000; /* Vermelho escuro */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-width: 150px; /* Define uma largura mínima para os cartões */
+    flex-shrink: 0; /* Impede que os cartões encolham no scroll */
+}
+
+.size-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(139, 0, 0, 0.3); /* Sombra vermelha */
+}
+
+.size-card img.pizza-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.size-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #8b0000; /* Vermelho escuro */
+}
+
+.size-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #8b0000; /* Vermelho escuro */
+}
+
+.selected-size-price {
+    margin-top: 20px;
+    font-size: 1rem;
+    background-color: #ffd2d2; /* Vermelho claro */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: #8b0000; /* Vermelho escuro */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .size-options {
+        gap: 10px; /* Reduz o espaço entre os cartões */
+    }
+
+    .size-card {
+        padding: 10px; /* Ajusta o padding dos cartões */
+        min-width: 120px; /* Reduz a largura mínima dos cartões */
+    }
+
+    .size-title {
+        font-size: 1rem; /* Reduz o tamanho do título */
+    }
+
+    .size-description {
+        font-size: 0.8rem; /* Reduz o tamanho da descrição */
+    }
+
+    .selected-size-price {
+        font-size: 0.9rem; /* Ajusta o tamanho do preço */
+    }
+}
+
+/* Sabores */
+.flavor-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 10px;
+    background: #fff0f0; /* Vermelho muito claro */
+    border: 1px solid #8b0000; /* Vermelho escuro */
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/*====================
+   SABORES DAS PIZZAS    
+====================== */
+
+/* Estilo da seção de seleção de sabores */
+.flavor-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 10px;
+    background-color: #fff0f0; /* Vermelho muito claro */
+    border: 1px solid #8b0000; /* Vermelho escuro */
+    border-radius: 8px;
+    max-height: 150px; /* Limite de altura para rolagem */
+}
+
+.flavor-grid::-webkit-scrollbar {
+    height: 10px;
+}
+
+.flavor-grid::-webkit-scrollbar-thumb {
+    background-color: #8b0000; /* Vermelho escuro */
+    border-radius: 10px;
+}
+
+.flavor-grid::-webkit-scrollbar-thumb:hover {
+    background-color: #a52a2a; /* Vermelho mais escuro */
+}
+
+.flavor-card {
+    flex: 0 0 120px; /* Tamanho fixo dos cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #a52a2a; /* Vermelho médio */
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fffafa; /* Branco levemente rosado */
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.flavor-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(165, 42, 42, 0.2); /* Sombra vermelha */
+}
+
+.flavor-card.selected {
+    border-color: #b22222; /* Vermelho claro */
+    background-color: #ffb6b6; /* Vermelho suave */
+}
+
+.flavor-card .icon {
+    font-size: 32px;
+    color: #a52a2a; /* Vermelho médio */
+    margin-bottom: 8px;
+}
+
+.flavor-card h4 {
+    font-size: 14px;
+    color: #800000; /* Vermelho intenso */
+    margin: 0;
+}
+
+#finalize-pizza {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a52a2a; /* Vermelho médio */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#finalize-pizza:disabled {
+    background-color: #d3d3d3; /* Cinza claro */
+    cursor: not-allowed;
+}
+
+#finalize-pizza:hover:not(:disabled) {
+    background-color: #800000; /* Vermelho intenso */
+}
+
+/* Fatias e tamanhos */
+.selected-flavors-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #a52a2a; /* Vermelho médio */
+    border-radius: 8px;
+    background-color: #ffebeb; /* Rosa muito claro */
+    min-height: 40px;
+    align-items: center;
+}
+
+.selected-flavor-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f4a6a6; /* Rosa claro */
+    padding: 5px 10px;
+    border: 1px solid #d2691e; /* Marrom claro */
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #4b3621; /* Marrom escuro */
+}
+
+.selected-flavor-item i {
+    color: #d2691e; /* Marrom claro */
+}
+
+/*====================
+   MODAL DO CARRINHO    
+====================== */
+
+:root {
+    --primary-color: #FF0000; /* Vermelho */
+    --secondary-color: #FFFFFF; /* Branco */
+    --highlight-color: #FFC0CB; /* Rosa claro */
+    --text-color: #B22222; /* Vermelho suave */
+    --hover-color: #8B0000; /* Vermelho escuro para hover */
+}
+
+#cart-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(75, 54, 33, 0.2); /* Fundo transparente em marrom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Conteúdo do Modal */
+#cart-modal .modal-content {
+    background: var(--secondary-color); /* Fundo branco */
+    border-radius: 14px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85%;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px var(--highlight-color); /* Sombra rosa claro */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: fadeInModal 0.3s ease forwards;
+}
+
+/* Título do Modal */
+#cart-modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--primary-color); /* Texto vermelho */
+    font-weight: bold;
+}
+
+/* Lista de Itens no Carrinho */
+#cart-items {
+    border: 1px solid var(--highlight-color); /* Borda rosa claro */
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    background-color: var(--secondary-color); /* Fundo branco */
+    box-shadow: none; /* Remove a sombra interna */
+}
+
+#cart-items p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: var(--text-color); /* Texto vermelho suave */
+    line-height: 1.5;
+}
+
+/* Total do Carrinho */
+#cart-total {
+    font-weight: bold;
+    color: var(--primary-color); /* Texto vermelho */
+    font-size: 1.4rem;
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Botão de Fechar */
+#cart-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color); /* Fundo vermelho */
+    color: var(--secondary-color); /* Texto branco */
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px var(--highlight-color); /* Sombra leve */
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#cart-modal .close-btn:hover {
+    opacity: 0;
+    transform: scale(1.1);
+    background: #8B0000; /* Fundo mais escuro no hover */
+}
+
+/* Animações */
+@keyframes fadeInModal {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Modal Ativo */
+#cart-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo para os itens no carrinho */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--secondary-color); /* Fundo branco */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--highlight-color); /* Sombra suave */
+    gap: 12px;
+}
+
+/* Imagem do item no carrinho */
+.cart-item-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--highlight-color); /* Borda rosa claro */
+}
+
+/* Detalhes do item */
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Texto vermelho */
+}
+
+.cart-item-price {
+    color: var(--primary-color); /* Texto vermelho */
+    font-size: 1rem;
+}
+
+/* Botão de remover item */
+.remove-item-btn {
+    background: var(--primary-color); /* Fundo vermelho */
+    color: var(--secondary-color); /* Texto branco */
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.remove-item-btn:hover {
+    background: #8B0000; /* Fundo mais escuro no hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #cart-modal .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    #cart-modal h2 {
+        font-size: 1.8rem;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cart-item-name {
+        font-size: 1rem;
+    }
+
+    .cart-item-price {
+        font-size: 0.9rem;
+    }
+}
+
+/* Carrinho */
+#cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+#cart-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Inputs de Nome e Endereço */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color); /* Borda vermelha */
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--secondary-color); /* Fundo branco */
+    color: var(--text-color); /* Texto vermelho suave */
+}
+
+/* Opções de Pagamento */
+#payment-section {
+    margin-top: 15px;
+}
+
+#payment-section h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color); /* Texto vermelho */
+    margin-bottom: 10px;
+}
+
+.payment-options label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Texto vermelho suave */
+}
+
+.payment-options input {
+    margin-right: 10px;
+}
+
+/* Informações de Pagamento */
+#pix-info {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-color); /* Texto vermelho suave */
+}
+
+#pix-info p {
+    margin-bottom: 10px;
+}
+
+#pix-info button {
+    background-color: var(--primary-color); /* Fundo vermelho */
+    color: var(--secondary-color); /* Texto branco */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#pix-info button:hover {
+    background-color: var(--hover-color); /* Vermelho mais escuro no hover */
+}
+
+/* Upload de Comprovante */
+#upload-proof {
+    margin-top: 15px;
+}
+
+#upload-proof label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-color); /* Texto vermelho suave */
+}
+
+#upload-proof input[type="file"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid var(--primary-color); /* Borda vermelha */
+    border-radius: 8px;
+    background-color: var(--secondary-color); /* Fundo branco */
+}
+
+/* Botões de Fechar e Checkout */
+#close-modal-btn {
+    background-color: #8B0000; /* Vermelho escuro */
+    color: var(--secondary-color); /* Texto branco */
+}
+
+#close-modal-btn:hover {
+    background-color: #7B241C; /* Vermelho ainda mais escuro no hover */
+    transform: scale(1.05);
+}
+
+#checkout-btn {
+    background-color: var(--primary-color); /* Fundo vermelho */
+    color: var(--secondary-color); /* Texto branco */
+}
+
+#checkout-btn:hover {
+    background-color: var(--hover-color); /* Vermelho mais escuro no hover */
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+/* Footer com Carrinho */
+:root {
+    --primary-color: #FF0000; /* Vermelho */
+    --secondary-color: #FFFFFF; /* Branco */
+    --highlight-color: #FF4C4C; /* Vermelho claro */
+    --hover-color: #CC0000; /* Vermelho escuro para hover */
+    --text-color: #4B3621; /* Texto marrom suave */
+}
+
+/* Footer com Carrinho */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--primary-color); /* Vermelho */
+    padding: 10px 0;
+    text-align: center;
+    border-top: 2px solid var(--highlight-color); /* Vermelho claro */
+}
+
+#cart-btn {
+    background-color: var(--primary-color); /* Vermelho */
+    color: var(--secondary-color); /* Branco */
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+#cart-btn:hover {
+    background-color: var(--hover-color); /* Vermelho escuro no hover */
+    transform: scale(1.1);
+}
+
+/* Animações */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividade Geral */
+@media (max-width: 1024px) {
+    #cart-modal .modal-content {
+        width: 85%;
+        padding: 15px;
+    }
+
+    input[type="text"],
+    #upload-proof input[type="file"] {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .payment-options label {
+        font-size: 0.9rem;
+    }
+
+    .modal-actions button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para tablets e celulares */
+    #cart-modal .modal-content {
+        width: 95%;
+        padding: 10px;
+        max-height: 80%;
+        overflow-y: auto;
+    }
+
+    #cart-items {
+        max-height: 120px;
+        padding: 5px;
+    }
+
+    #pix-info {
+        font-size: 0.8rem;
+    }
+
+    #pix-info button {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    input[type="text"],
+    #upload-proof input[type="file"] {
+        font-size: 0.8rem;
+        padding: 7px;
+    }
+
+    #payment-section h3 {
+        font-size: 1rem;
+    }
+
+    .modal-actions button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    #cart-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+        width: 90%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para celulares pequenos */
+    #cart-modal .modal-content {
+        width: 90%;
+        padding: 10px;
+        max-height: 90%;
+    }
+
+    #cart-items {
+        max-height: 100px;
+        padding: 5px;
+    }
+
+    h2,
+    #payment-section h3 {
+        font-size: 1rem;
+    }
+
+    #cart-btn {
+        font-size: 0.8rem;
+        padding: 8px;
+        width: 95%;
+    }
+
+    input[type="text"],
+    #upload-proof input[type="file"] {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .modal-actions button {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    #pix-info button {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Específico para Modal Centralizado */
+@media (max-width: 480px) {
+    #cart-modal .modal-content {
+        transform: scale(1);
+    }
+}
+
+.cart-notification {
+    border: 3px solid #FF0000; /* Vermelho */
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
